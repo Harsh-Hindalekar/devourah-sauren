@@ -34,14 +34,26 @@ export default function FeaturedMenu({ onAddToCart, onOpenFullMenu }) {
         {/* Desktop Header Grid: Left Headline & Arrow Controls */}
         <div className="hidden lg:grid grid-cols-12 gap-8 items-end mb-14">
           <div className="col-span-8 text-left">
-            <span className="font-display text-xs font-bold tracking-[0.2em] text-[#888888] uppercase block mb-2">
+            <motion.span
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5 }}
+              className="font-display text-xs font-bold tracking-[0.2em] text-[#888888] uppercase block mb-2"
+            >
               OUR FAVORITES
-            </span>
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black uppercase text-[#111111] leading-[0.95] tracking-tight">
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="font-display text-4xl sm:text-5xl lg:text-6xl font-black uppercase text-[#111111] leading-[0.95] tracking-tight"
+            >
               MADE FOR
               <br />
               FOOD LOVERS.
-            </h2>
+            </motion.h2>
           </div>
           <div className="col-span-4 flex justify-end items-center gap-3">
             <button
@@ -65,9 +77,15 @@ export default function FeaturedMenu({ onAddToCart, onOpenFullMenu }) {
 
         {/* Mobile Header */}
         <div className="block lg:hidden text-left mb-8">
-          <h2 className="font-display text-3xl font-black uppercase tracking-tight text-[#111111]">
+          <motion.h2
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5 }}
+            className="font-display text-3xl font-black uppercase tracking-tight text-[#111111]"
+          >
             FEATURED FOR YOU
-          </h2>
+          </motion.h2>
         </div>
 
         {/* Cards Grid */}
@@ -77,9 +95,9 @@ export default function FeaturedMenu({ onAddToCart, onOpenFullMenu }) {
             return (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group bg-[#EFECE4] rounded-3xl overflow-hidden border border-[#E2DBD0] hover:border-[#D0C7B8] hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
               >

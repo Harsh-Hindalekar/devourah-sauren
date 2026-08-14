@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { Instagram, Facebook, MessageCircle } from 'lucide-react';
 import { restaurantData } from '../data/restaurantData.js';
 
@@ -16,18 +17,36 @@ export default function FollowUs() {
       id="follow-section"
       className="bg-[#FAF7F2] py-14 sm:py-16 border-b border-[#EAE4D8]"
     >
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 text-center">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 text-center space-y-4">
         
-        <span className="font-display text-xs font-bold tracking-[0.25em] text-[#888888] uppercase block mb-2">
+        <motion.span
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="font-display text-xs font-bold tracking-[0.25em] text-[#888888] uppercase block"
+        >
           FOLLOW US
-        </span>
+        </motion.span>
 
-        <h3 className="font-display text-2xl sm:text-3xl font-black text-[#111111] uppercase tracking-tight mb-6">
+        <motion.h3
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="font-display text-2xl sm:text-3xl font-black text-[#111111] uppercase tracking-tight"
+        >
           {brand.instagramHandle}
-        </h3>
+        </motion.h3>
 
         {/* Social Icons */}
-        <div className="flex items-center justify-center gap-4">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="flex items-center justify-center gap-4 pt-2"
+        >
           {socialLinks.map((item) => (
             <a
               key={item.name}
@@ -40,7 +59,7 @@ export default function FollowUs() {
               {item.icon}
             </a>
           ))}
-        </div>
+        </motion.div>
 
       </div>
     </section>

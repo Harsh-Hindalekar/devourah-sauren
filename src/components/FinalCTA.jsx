@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { ArrowRight, Instagram, Facebook, MessageCircle } from 'lucide-react';
 import { restaurantData } from '../data/restaurantData.js';
 
@@ -22,7 +23,13 @@ export default function FinalCTA({ onOpenMenu }) {
         <div className="hidden lg:flex items-center justify-between py-6">
           
           {/* Left: Social Icons */}
-          <div className="flex items-center gap-3">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-3"
+          >
             {socialLinks.map((item) => (
               <a
                 key={item.name}
@@ -35,17 +42,27 @@ export default function FinalCTA({ onOpenMenu }) {
                 {item.icon}
               </a>
             ))}
-          </div>
+          </motion.div>
 
           {/* Center: HUNGRY YET? */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <h2 className="font-display text-5xl xl:text-6xl font-black uppercase tracking-tight text-white">
               {finalCTA.heading}
             </h2>
-          </div>
+          </motion.div>
 
           {/* Right: VIEW MENU Yellow Button */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <button
               type="button"
               id="final-menu-btn-desktop"
@@ -55,7 +72,7 @@ export default function FinalCTA({ onOpenMenu }) {
               <span>{finalCTA.buttonText}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
-          </div>
+          </motion.div>
 
         </div>
 
@@ -63,25 +80,41 @@ export default function FinalCTA({ onOpenMenu }) {
         <div className="block lg:hidden text-center space-y-6 max-w-sm mx-auto">
           
           {/* Circular Stamp Logo */}
-          <div className="w-20 h-20 mx-auto rounded-full border border-dashed border-neutral-700 flex items-center justify-center p-2">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5 }}
+            className="w-20 h-20 mx-auto rounded-full border border-dashed border-neutral-700 flex items-center justify-center p-2"
+          >
             <div className="w-full h-full rounded-full border border-neutral-600 flex flex-col items-center justify-center">
               <span className="font-display text-[8px] font-bold text-neutral-400 uppercase tracking-wider">DEVOURAH</span>
               <span className="font-display text-[7px] text-[#E5A812] font-semibold">★ 2024 ★</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Heading & Subheading */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <h2 className="font-display text-4xl sm:text-5xl font-black uppercase tracking-tight text-white mb-2">
               {finalCTA.heading}
             </h2>
             <p className="text-neutral-400 text-sm">
               {finalCTA.subheading}
             </p>
-          </div>
+          </motion.div>
 
           {/* Yellow CTA Button */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <button
               type="button"
               id="final-menu-btn-mobile"
@@ -91,12 +124,18 @@ export default function FinalCTA({ onOpenMenu }) {
               <span>{finalCTA.buttonText}</span>
               <ArrowRight className="w-4 h-4" />
             </button>
-          </div>
+          </motion.div>
 
           {/* Copyright text on mobile */}
-          <div className="pt-8 text-neutral-600 text-xs font-medium">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="pt-8 text-neutral-600 text-xs font-medium"
+          >
             <p>{footer.copyright}</p>
-          </div>
+          </motion.div>
 
           {/* Home indicator bar */}
           <div className="w-32 h-1 bg-neutral-800 rounded-full mx-auto mt-4"></div>

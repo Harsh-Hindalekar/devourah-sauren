@@ -26,11 +26,17 @@ export default function CategoryShowcase({ onSelectCategory }) {
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
 
         {/* Mobile Header */}
-        <div className="block lg:hidden mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="block lg:hidden mb-8"
+        >
           <span className="font-display text-xs font-bold tracking-[0.25em] text-[#E5A812] uppercase block">
             WHAT WE SERVE
           </span>
-        </div>
+        </motion.div>
 
         {/* Desktop Layout: 3 Columns (Left list + Middle Image + Right Info) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
@@ -50,7 +56,13 @@ export default function CategoryShowcase({ onSelectCategory }) {
             </div>
 
             {/* Category Names */}
-            <div className="flex flex-col space-y-3 sm:space-y-4 md:space-y-5">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6 }}
+              className="flex flex-col space-y-3 sm:space-y-4 md:space-y-5"
+            >
               {categories.map((cat, idx) => {
                 const isActive = idx === activeIndex;
                 return (
@@ -64,8 +76,8 @@ export default function CategoryShowcase({ onSelectCategory }) {
                     <span
                       className={`font-display text-4xl sm:text-5xl md:text-6xl lg:text-[4rem] xl:text-[4.5rem] font-black tracking-tight uppercase transition-colors duration-300 leading-none ${
                         isActive
-                          ? 'text-[#E5A812]'
-                          : 'text-white/60 hover:text-white'
+                           ? 'text-[#E5A812]'
+                           : 'text-white/60 hover:text-white'
                       }`}
                     >
                       {cat.name}
@@ -76,7 +88,7 @@ export default function CategoryShowcase({ onSelectCategory }) {
                   </button>
                 );
               })}
-            </div>
+            </motion.div>
           </div>
 
           {/* Middle Column: Cutout / Hero Food Item */}

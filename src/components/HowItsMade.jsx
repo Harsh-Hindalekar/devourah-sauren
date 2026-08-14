@@ -24,25 +24,37 @@ export default function HowItsMade() {
           
           {/* Left Column: Heading & 4 Quality Steps */}
           <div className="lg:col-span-7 text-left">
-            <span className="font-display text-xs font-bold tracking-[0.2em] text-[#888888] uppercase block mb-3">
+            <motion.span
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5 }}
+              className="font-display text-xs font-bold tracking-[0.2em] text-[#888888] uppercase block mb-3"
+            >
               {howItsMade.eyebrow}
-            </span>
+            </motion.span>
 
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black uppercase text-[#111111] leading-[0.95] tracking-tight mb-10">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="font-display text-4xl sm:text-5xl lg:text-6xl font-black uppercase text-[#111111] leading-[0.95] tracking-tight mb-10"
+            >
               GOOD INGREDIENTS.
               <br />
               GREAT TASTE.
-            </h2>
+            </motion.h2>
 
             {/* 4 Process Items */}
             <div className="space-y-6 sm:space-y-7">
               {howItsMade.steps.map((step, idx) => (
                 <motion.div
                   key={step.num}
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: -25 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.4, delay: 0.2 + idx * 0.1 }}
                   className="flex items-start gap-4 sm:gap-5 group"
                 >
                   {/* Circular Icon Container */}
@@ -60,7 +72,7 @@ export default function HowItsMade() {
                       </h3>
                     </div>
                     <p className="text-[#666666] text-sm mt-0.5 leading-relaxed">
-                      {step.description}
+                       {step.description}
                     </p>
                   </div>
                 </motion.div>
@@ -71,10 +83,10 @@ export default function HowItsMade() {
           {/* Right Column: Floating Cutout Burger Graphic */}
           <div className="lg:col-span-5 relative flex items-center justify-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
               className="relative w-full max-w-sm sm:max-w-md aspect-square rounded-3xl overflow-hidden shadow-2xl border border-[#E0D8C8] bg-[#EFECE4]"
             >
               <img

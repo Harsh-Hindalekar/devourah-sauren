@@ -14,30 +14,54 @@ export default function AboutUsStory() {
         
         <div className="max-w-3xl mx-auto text-center">
           
-          <span className="font-display text-xs font-bold tracking-[0.25em] text-[#888888] uppercase block mb-3">
+          <motion.span
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5 }}
+            className="font-display text-xs font-bold tracking-[0.25em] text-[#888888] uppercase block mb-3"
+          >
             {aboutUsStory.eyebrow}
-          </span>
+          </motion.span>
 
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase text-[#111111] leading-[1] tracking-tight mb-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black uppercase text-[#111111] leading-[1] tracking-tight mb-6"
+          >
             WE BELIEVE IN
             <br />
             GOOD FOOD AND GOOD COMPANY.
-          </h2>
+          </motion.h2>
 
           {/* Minimalist Divider */}
-          <div className="w-16 h-0.5 bg-[#111111] mx-auto mb-6"></div>
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            whileInView={{ opacity: 1, scaleX: 1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="w-16 h-0.5 bg-[#111111] mx-auto mb-6 origin-center"
+          ></motion.div>
 
           {/* Narrative Paragraph */}
-          <p className="text-[#555555] text-base sm:text-lg md:text-xl leading-relaxed font-normal max-w-2xl mx-auto mb-10">
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
+            className="text-[#555555] text-base sm:text-lg md:text-xl leading-relaxed font-normal max-w-2xl mx-auto mb-10"
+          >
             {aboutUsStory.description}
-          </p>
+          </motion.p>
 
           {/* Photo of Café Interior with Glowing Neon */}
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             className="relative rounded-3xl overflow-hidden shadow-2xl border-2 border-white aspect-16/9 sm:aspect-21/9 bg-[#EBE7DD]"
           >
             <img
